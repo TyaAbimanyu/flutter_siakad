@@ -80,7 +80,7 @@ class _AuthPageState extends State<AuthPage> {
                   },
                 );
               },
-              label: 'CIVITAS AKADEMIK',
+              label: 'DOSEN',
             ),
             const SizedBox(height: 8.0),
             Button.outlined(

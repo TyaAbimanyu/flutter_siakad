@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_siakad_app/common/constants/images.dart';
-import 'package:flutter_siakad_app/page/auth/auth.page.dart';
+import 'package:flutter_siakad_app/page/auth/auth_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

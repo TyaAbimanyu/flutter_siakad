@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_siakad_app/common/constants/colors.dart';
+import 'package:flutter_siakad_app/common/constants/icons.dart';
+import 'package:flutter_siakad_app/page/mahasiswa/dashboard_page.dart';
+import 'package:flutter_siakad_app/page/mahasiswa/settings_page.dart';
 
 class MahasiswaPage extends StatefulWidget {
   const MahasiswaPage({super.key});
@@ -8,8 +12,48 @@ class MahasiswaPage extends StatefulWidget {
 }
 
 class _MahasiswaPageState extends State<MahasiswaPage> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  final List<Widget> _pages = [
+    const DashboardPage(), 
+    const Center(child: Text('Schedule')),
+    const SettingsPage()
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SafeArea(
+      child: Scaffold(
+        body: _pages[_selectedIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _selectedIndex,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          selectedItemColor: ColorName.primary,
+          onTap: _onItemTapped,
+          items: const [
+            BottomNavigationBarItem(
+              icon: ImageIcon(IconName.home),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(IconName.chart),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(IconName.profile),
+              label: '',
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
