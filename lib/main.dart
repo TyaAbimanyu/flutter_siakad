@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_siakad_app/bloc/bloc/login_bloc.dart';
 import 'package:flutter_siakad_app/page/auth/splash_page.dart';
 
 void main() {
@@ -16,7 +18,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashPage(),
+      home: BlocProvider(
+        create: (context) => LoginBloc(),
+        child: SplashPage(),
+      ),
     );
   }
 }

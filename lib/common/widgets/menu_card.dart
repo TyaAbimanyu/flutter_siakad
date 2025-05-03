@@ -58,6 +58,7 @@ class MenuCard extends StatelessWidget {
                 height: 106,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(94.25),
+                  // ignore: deprecated_member_use
                   color: ColorName.white.withOpacity(0.2),
                 ),
               ),

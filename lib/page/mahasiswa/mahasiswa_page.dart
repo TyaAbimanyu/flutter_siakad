@@ -21,7 +21,7 @@ class _MahasiswaPageState extends State<MahasiswaPage> {
   }
 
   final List<Widget> _pages = [
-    const DashboardPage(), 
+    const DashboardPage(),
     const Center(child: Text('Schedule')),
     const SettingsPage()
   ];

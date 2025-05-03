@@ -1,0 +1,26 @@
+import 'package:bloc/bloc.dart';
+import 'package:flutter_siakad_app/data/datasources/auth_remote_datasources.dart';
+import 'package:flutter_siakad_app/data/models/request/auth_request_model.dart';
+import 'package:flutter_siakad_app/data/models/response/auth_response_model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'login_event.dart';
+part 'login_state.dart';
+part 'login_bloc.freezed.dart';
+
+class LoginBloc extends Bloc<LoginEvent, LoginState> {
+  LoginBloc() : super(_Initial()) {
+    on<_Login>((event, emit) async {
+      emit(const _Loading());
+      final response = await AuthRemoteDatasources().login(event.requestModel);
+      response.fold(
+        (error) => emit(_Error(error)),
+        (data) {
+          emit(_Loaded(data));
+          // Save token to local storage
+          // Save user data to local storage
+        },
+      );
+    });
+  }
+}
