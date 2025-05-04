@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_siakad_app/bloc/bloc/login_bloc.dart';
 import 'package:flutter_siakad_app/common/constants/colors.dart';
 import 'package:flutter_siakad_app/common/constants/images.dart';
 import 'package:flutter_siakad_app/common/widgets/buttons.dart';
@@ -66,16 +68,9 @@ class _AuthPageState extends State<AuthPage> {
                   useSafeArea: true,
                   isScrollControlled: true,
                   builder: (BuildContext context) {
-                    return LoginBottomSheet(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const DosenPage(),
-                          ),
-                        );
-                      },
+                    return BlocProvider(
+                      create: (context) => LoginBloc(),
+                      child: LoginBottomSheet(),
                     );
                   },
                 );
@@ -90,16 +85,9 @@ class _AuthPageState extends State<AuthPage> {
                   useSafeArea: true,
                   isScrollControlled: true,
                   builder: (BuildContext context) {
-                    return LoginBottomSheet(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MahasiswaPage(),
-                          ),
-                        );
-                      },
+                    return BlocProvider(
+                      create: (context) => LoginBloc(),
+                      child: LoginBottomSheet(),
                     );
                   },
                 );
