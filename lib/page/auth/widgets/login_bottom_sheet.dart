@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_siakad_app/bloc/bloc/login_bloc.dart';
 import 'package:flutter_siakad_app/common/widgets/buttons.dart';
 import 'package:flutter_siakad_app/common/widgets/custom_text_field.dart';
+import 'package:flutter_siakad_app/data/datasources/auth_local_datasources.dart';
 import 'package:flutter_siakad_app/data/models/request/auth_request_model.dart';
 import 'package:flutter_siakad_app/page/dosen/dosen_page.dart';
 import 'package:flutter_siakad_app/page/mahasiswa/mahasiswa_page.dart';
@@ -99,6 +100,7 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                     state.maybeWhen(orElse: () {
                       return;
                     }, loaded: (data) {
+                      AuthLocalDatasources().saveUserToken(data);
                       if (data.user.roles != widget.roles) {
                         showDialog(
                           context: context,
