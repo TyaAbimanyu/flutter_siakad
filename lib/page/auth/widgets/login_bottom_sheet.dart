@@ -104,11 +104,22 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                         ),
                       );
                     }, error: (message) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(message),
-                          backgroundColor: Colors.red,
-                        ),
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: const Text('Error'),
+                            content: Text(message),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
                       );
                     });
                   },
