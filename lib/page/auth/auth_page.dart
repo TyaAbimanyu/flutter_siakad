@@ -5,8 +5,6 @@ import 'package:flutter_siakad_app/common/constants/colors.dart';
 import 'package:flutter_siakad_app/common/constants/images.dart';
 import 'package:flutter_siakad_app/common/widgets/buttons.dart';
 import 'package:flutter_siakad_app/page/auth/widgets/login_bottom_sheet.dart';
-import 'package:flutter_siakad_app/page/dosen/dosen_page.dart';
-import 'package:flutter_siakad_app/page/mahasiswa/mahasiswa_page.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
@@ -70,7 +68,7 @@ class _AuthPageState extends State<AuthPage> {
                   builder: (BuildContext context) {
                     return BlocProvider(
                       create: (context) => LoginBloc(),
-                      child: LoginBottomSheet(),
+                      child: LoginBottomSheet(roles: 'dosen'),
                     );
                   },
                 );
@@ -87,7 +85,7 @@ class _AuthPageState extends State<AuthPage> {
                   builder: (BuildContext context) {
                     return BlocProvider(
                       create: (context) => LoginBloc(),
-                      child: LoginBottomSheet(),
+                      child: LoginBottomSheet(roles: 'mahasiswa'),
                     );
                   },
                 );
