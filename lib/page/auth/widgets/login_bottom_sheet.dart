@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_siakad_app/bloc/bloc/login_bloc.dart';
+import 'package:flutter_siakad_app/bloc/login/login_bloc.dart';
 import 'package:flutter_siakad_app/common/widgets/buttons.dart';
 import 'package:flutter_siakad_app/common/widgets/custom_text_field.dart';
 import 'package:flutter_siakad_app/data/datasources/auth_local_datasources.dart';
